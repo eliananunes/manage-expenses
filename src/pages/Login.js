@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getName, getEmail } from "../redux/userSlice";
 import validator from 'validator';
+import { useNavigate } from 'react-router';
 
 const Login = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleLogin= () => {
         dispatch(getName(name));
         dispatch(getEmail(email));
+        navigate('/despesas');
     };
 
     return(
